@@ -1,13 +1,22 @@
 async function gerarPokemon(num) {
-    await fetch(`https://pokeapi.co/api/v2/pokemon/${num}`)
-        .then(response => response.json())
-        .then(json => {
-            console.log({
-                name: json.name,
-                type1:json.types[0].type.name,
-                type2:json.types[1].type.name,
-                sprite:json.sprites.other.showdown.front_default
-            })
-        })
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${num}`)
+    const json = await response.json()
+    return {
+
+        name: json.name,
+        sprite: json.sprites.other.showdown.front_default
+    }
 }
-gerarPokemon(1)
+async function setPokemonImg(num) {
+    const main = document.getElementById('root')
+    const pokemon = await gerarPokemon(num)
+
+    main.innerHTML = `
+    <article>
+        <h2 id="title">${pokemon.name}</h2>
+        <img id="card" src="${pokemon.sprite}" alt="card">
+    </article>
+    `
+}
+
+setPokemonImg(1)

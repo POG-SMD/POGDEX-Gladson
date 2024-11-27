@@ -16,8 +16,22 @@
     margin-top: 10rem;
     display:flex;
     justify-content: center;
-    flex-wrap: wrap;    g
+    flex-wrap: wrap;
     gap: 3rem;
+}
+#random{
+    color: var(--parrom);
+    background-color: var(--peige);
+    font-size: 40px;
+    margin-top: 10rem;
+
+}
+h1{
+    width: 100%;
+    font-size: 10rem;
+    text-align: center;
+    color: var(--parrom);
+    background-color: var(--pazul);
 }
 article{
     color: var(--parrom);
@@ -60,3 +74,42 @@ div .type{
     border-radius: 0.5rem;
     text-transform: uppercase;
 }
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#overlay.hidden {
+    display: none;
+}
+
+#overlay article {
+    background-color: var(--peige);
+    width: 30rem;
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+#close {
+    border-radius: 10%;
+    background-color: var(--parrom);
+    color: var(--peige);
+    font-size: 5rem;
+
+}
+#close:hover{
+    transform: scale(1.02);
+    box-shadow: 0 .3rem .8rem #00000070;
+}   

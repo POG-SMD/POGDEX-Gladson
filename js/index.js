@@ -25,14 +25,14 @@ async function setPokemonImg(num) {
     `
 }
 
-for (let i = 1  ; i < 152; i++) setPokemonImg(i)
+for (let i = 1; i < 152; i++) setPokemonImg(i)
 
-    document.getElementById('random').addEventListener('click', async () => {
-        const overlay = document.getElementById('overlay');
-        const randomNum = Math.floor(Math.random() * 151) + 1;
-        const pokemon = await gerarPokemon(randomNum);
+document.getElementById('random').addEventListener('click', async () => {
+    const overlay = document.getElementById('overlay')
+    const randomNum = Math.floor(Math.random() * 151) + 1
+    const pokemon = await gerarPokemon(randomNum)
 
-        overlay.innerHTML = `
+    overlay.innerHTML = `
         <article>
             <h2>${pokemon.name}</h2>
             <img src="${pokemon.sprite}" alt="${pokemon.name}">
@@ -42,12 +42,11 @@ for (let i = 1  ; i < 152; i++) setPokemonImg(i)
             </div>
             <button id="close">Fechar</button>
         </article>
-        `;
-    
-        overlay.classList.remove('hidden');
+        `
 
-        document.getElementById('close').addEventListener('click', () => {
-            overlay.classList.add('hidden');
-        });
-    });
-    
+    overlay.classList.remove('hidden')
+
+    document.getElementById('close').addEventListener('click', () => {
+        overlay.classList.add('hidden')
+    })
+})
